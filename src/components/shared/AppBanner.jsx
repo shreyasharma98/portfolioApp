@@ -1,7 +1,7 @@
 import useThemeSwitcher from '../../hooks/useThemeSwitcher';
 import { FiArrowDownCircle } from 'react-icons/fi';
-import developerLight from '../../images/developer.svg';
-import developerDark from '../../images/developer-dark.svg';
+import developerLight from '../../images/picofme.png';
+import developerDark from '../../images/picofme.png';
 import { motion } from 'framer-motion';
 
 const AppBanner = () => {
@@ -14,6 +14,19 @@ const AppBanner = () => {
 			transition={{ ease: 'easeInOut', duration: 0.9, delay: 0.2 }}
 			className="flex flex-col sm:justify-between items-center sm:flex-row mt-12 md:mt-2"
 		>
+				<motion.div
+				initial={{ opacity: 0, y: -180 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ ease: 'easeInOut', duration: 0.9, delay: 0.2 }}
+				className="w-full sm:w-2/3 text-right float-right mt-8 sm:mt-0"
+			>
+				<img
+					src={
+						activeTheme === 'dark' ? developerLight : developerDark
+					}
+					alt="Developer"
+				/>
+			</motion.div>
 			<div className="w-full md:w-1/3 text-left">
 				<motion.h1
 					initial={{ opacity: 0 }}
@@ -62,19 +75,6 @@ const AppBanner = () => {
 					</a>
 				</motion.div>
 			</div>
-			<motion.div
-				initial={{ opacity: 0, y: -180 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ ease: 'easeInOut', duration: 0.9, delay: 0.2 }}
-				className="w-full sm:w-2/3 text-right float-right mt-8 sm:mt-0"
-			>
-				<img
-					src={
-						activeTheme === 'dark' ? developerLight : developerDark
-					}
-					alt="Developer"
-				/>
-			</motion.div>
 		</motion.section>
 	);
 };
